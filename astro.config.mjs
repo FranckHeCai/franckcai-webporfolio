@@ -4,9 +4,12 @@ import tailwind from "@astrojs/tailwind";
 
 import react from "@astrojs/react";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react()],
+
   vite: {
     optimizeDeps: {
       include: ["zwitch"],
@@ -18,12 +21,17 @@ export default defineConfig({
       },
     },
   },
+
   output: "static",
+
   build: {
     inlineStylesheets: "auto",
   },
+
   server: {
     host: true,
     port: 4321,
   },
+
+  adapter: vercel(),
 });
