@@ -1,9 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import svgl from "../../public/svgl.png";
-import stockin from "../../public/stockin.png";
+import conocidos from "public/conocidos-thumbnail.png"
 import qrsnap from "public/qrsnap.png";
-import moviesfordevs from "../../public/moviesfordevs.png";
+
 
 interface Project {
   title: string;
@@ -11,17 +10,28 @@ interface Project {
   link: string;
   preview: string;
   status: string;
+  description: string;
 }
 
 const projects: Project[] = [
   {
     title: "QR Snap",
+    image: conocidos as ImageMetadata,
+    link: "https://github.com/FranckHeCai/franckcai-webporfolio",
+    preview: "https://conocidos-frontend.vercel.app",
+    status: "Finished",
+    description: "Multiplayer Game Kahoot style"
+  },
+    {
+    title: "Conocidos",
     image: qrsnap as ImageMetadata,
     link: "https://github.com/FranckHeCai/text-to-qr-generator",
     preview: "https://github.com/FranckHeCai/text-to-qr-generator",
-    status: "On Development",
+    status: "Finished",
+    description: "Turns any text into a QR code ready to be scanned",
   },
 ];
+
 ---
 
 <section
@@ -52,7 +62,17 @@ const projects: Project[] = [
               <div class="flex items-center px-3">
                 <div class="flex-grow">
                   <h4 class="text-2xl font-semibold">{project.title}</h4>
-                  <span class="py-1 text-sm text-[var(--white-icon)]">
+                  <span class="flex gap-2 items-center py-1 text-sm text-[var(--white-icon)]">
+                    <div class={
+                      `w-2 h-2 rounded-full 
+                      ${project.status.toLowerCase() === 'finished' 
+                        ? "bg-emerald-600"
+                        : project.status.toLowerCase() === 'in development' 
+                          ? 'bg-amber-400'
+                          : ''
+                      }`
+                    }
+                     />
                     {project.status}
                   </span>
                 </div>
@@ -88,6 +108,10 @@ const projects: Project[] = [
                     </svg>
                   </a>
                 </div>
+              </div>
+              <div class="px-3 text">
+                <h2 class="text-[var(--sec)]">Description</h2>
+                <p class="text-sm text-gray-400">{project.description}</p>
               </div>
             </a>
           </div>
