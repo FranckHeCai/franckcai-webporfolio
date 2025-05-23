@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import conocidos from "public/conocidos-thumbnail.png"
 import spotify from "public/spotify-thumnail.png"
 import qrsnap from "public/qrsnap.png";
+import smallprojects from "public/github.png"
 
 
 interface Project {
@@ -24,14 +25,6 @@ const projects: Project[] = [
     description: "Multiplayer Game Kahoot style"
   },
   {
-    title: "QR Snap",
-    image: qrsnap as ImageMetadata,
-    link: "https://github.com/FranckHeCai/text-to-qr-generator",
-    preview: "https://github.com/FranckHeCai/text-to-qr-generator",
-    status: "Finished",
-    description: "Turns any text into a QR code ready to be scanned",
-  },
-  {
     title: "Spotify Clone",
     image: spotify as ImageMetadata,
     link: "https://github.com/FranckHeCai/spotify-clone",
@@ -39,6 +32,23 @@ const projects: Project[] = [
     status: "Finished",
     description: "Spotify clone made with Astro",
   },
+  {
+    title: "Small Projects",
+    image: smallprojects as ImageMetadata,
+    link: "https://github.com/FranckHeCai/FranckHeCai.github.io",
+    preview: "https://franckhecai.github.io",
+    status: "Finished",
+    description: "Small HTML/CSS/Javacript projects",
+  },
+  {
+    title: "QR Snap",
+    image: qrsnap as ImageMetadata,
+    link: "https://github.com/FranckHeCai/text-to-qr-generator",
+    preview: "https://github.com/FranckHeCai/text-to-qr-generator",
+    status: "Finished",
+    description: "Turns any text into a QR code ready to be scanned",
+  },
+
 ];
 
 ---
