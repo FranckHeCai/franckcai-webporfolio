@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import conocidos from "public/conocidos-thumbnail.png"
 import spotify from "public/spotify-thumnail.png"
-import qrsnap from "public/qrsnap.png";
+import benkyou from "public/benkyou.png";
 import smallprojects from "public/github.png"
 
 
@@ -33,22 +33,21 @@ const projects: Project[] = [
     description: "Spotify clone made with Astro",
   },
   {
+    title: "Benkyou",
+    image: benkyou as ImageMetadata,
+    link: "https://github.com/FranckHeCai/benkyou",
+    preview: "https://benkyou-opal.vercel.app",
+    status: "Developing",
+    description: "Application to study Japanese Kanjis",
+  },
+  {
     title: "Small Projects",
     image: smallprojects as ImageMetadata,
     link: "https://github.com/FranckHeCai/FranckHeCai.github.io",
     preview: "https://franckhecai.github.io",
     status: "Finished",
     description: "Small HTML/CSS/Javacript projects",
-  },
-  {
-    title: "QR Snap",
-    image: qrsnap as ImageMetadata,
-    link: "https://github.com/FranckHeCai/text-to-qr-generator",
-    preview: "https://github.com/FranckHeCai/text-to-qr-generator",
-    status: "Finished",
-    description: "Turns any text into a QR code ready to be scanned",
-  },
-
+  }
 ];
 
 ---
