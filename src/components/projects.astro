@@ -1,10 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import conocidos from "public/conocidos-thumbnail.png"
-import spotify from "public/spotify-thumnail.png"
+import conocidos from "public/conocidos-thumbnail.png";
+import spotify from "public/spotify-thumnail.png";
 import benkyou from "public/benkyou.png";
-import smallprojects from "public/github.png"
-
+import smallprojects from "public/github.png";
 
 interface Project {
   title: string;
@@ -13,6 +12,7 @@ interface Project {
   preview: string;
   status: string;
   description: string;
+  technologies?: string[];
 }
 
 const projects: Project[] = [
@@ -22,7 +22,8 @@ const projects: Project[] = [
     link: "https://github.com/FranckHeCai/franckcai-webporfolio",
     preview: "https://conocidos-frontend.vercel.app",
     status: "Finished",
-    description: "Multiplayer Game Kahoot style"
+    description: "Multiplayer Game Kahoot style",
+    technologies: ["react", "tailwindcss", "mysql", "nodejs", "express"],
   },
   {
     title: "Benkyou",
@@ -31,6 +32,7 @@ const projects: Project[] = [
     preview: "https://benkyou-opal.vercel.app",
     status: "In development",
     description: "Application to study Japanese Kanjis",
+    technologies: ["react", "tailwindcss"],
   },
   {
     title: "Spotify Clone",
@@ -39,6 +41,7 @@ const projects: Project[] = [
     preview: "https://franckcai-spotify-clone.vercel.app",
     status: "In development",
     description: "Spotify clone made with Astro",
+    technologies: ["astro", "react", "tailwindcss"],
   },
   {
     title: "Small Projects",
@@ -47,9 +50,9 @@ const projects: Project[] = [
     preview: "https://franckhecai.github.io",
     status: "Finished",
     description: "Small HTML/CSS/Javacript projects",
-  }
+    technologies: ["HTML5", "CSS3", "javaScript"],
+  },
 ];
-
 ---
 
 <section
@@ -81,16 +84,16 @@ const projects: Project[] = [
                 <div class="flex-grow">
                   <h4 class="text-2xl font-semibold">{project.title}</h4>
                   <span class="flex gap-2 items-center py-1 text-sm text-[var(--white-icon)]">
-                    <div class={
-                      `w-2 h-2 rounded-full 
-                      ${project.status.toLowerCase() === 'finished' 
-                        ? "bg-emerald-600"
-                        : project.status.toLowerCase() === 'in development' 
-                          ? 'bg-amber-400'
-                          : ''
-                      }`
-                    }
-                     />
+                    <div
+                      class={`w-2 h-2 rounded-full 
+                      ${
+                        project.status.toLowerCase() === "finished"
+                          ? "bg-emerald-600"
+                          : project.status.toLowerCase() === "in development"
+                            ? "bg-amber-400"
+                            : ""
+                      }`}
+                    />
                     {project.status}
                   </span>
                 </div>
@@ -130,6 +133,21 @@ const projects: Project[] = [
               <div class="px-3 text">
                 <h2 class="text-[var(--sec)]">Description</h2>
                 <p class="text-sm text-gray-400">{project.description}</p>
+              </div>
+              <div>
+                {project.technologies && project.technologies.length > 0 && (
+                  <div class="px-3 py-2">
+                    <h2 class="text-[var(--sec)]">Technologies</h2>
+                    <ul class="flex flex-wrap gap-2 mt-1">
+                      {project.technologies.map((tech) => (
+                        <li class="bg-stone-800 border-2 border-[var(--sec)] rounded-full px-3 py-2 flex items-center gap-2">
+                          <img class="size-6" src={`/svg/${tech}.svg`} alt="" />
+                          <p class="text-sm sm:text-base">{tech}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </a>
           </div>
