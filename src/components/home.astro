@@ -7,9 +7,19 @@ import SkillsList from "../React/SkillsList.tsx";
 <section class="text-[var(--white)] mt-12 md:mt-0" id="home">
   <div class="max-w-5xl mx-auto space-y-8 md:py-36 pb-14">
     <div class="text-left space-y-4">
-      <p class="text-md md:text-lg text-[var(--white-icon)] shiny-white">
-        Hi, I'm Franck Cai
-      </p>
+      <div class="flex items-center gap-5 sm:gap-10">
+        <p class="text-md md:text-lg text-[var(--white-icon)] shiny-white">
+          Hi, I'm Franck Cai
+        </p>
+
+        <picture class="size-20 rounded-full overflow-hidden relative">
+          <img
+            class="scale-150 absolute -left-3 top-3"
+            src="/favicon.png"
+            alt="portrait picture"
+          />
+        </picture>
+      </div>
       <div
         class="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 md:gap-4"
       >
@@ -86,7 +96,7 @@ import SkillsList from "../React/SkillsList.tsx";
     <div class="flex flex-col lg:flex-row items-center gap-8">
       <SkillsList client:load />
       <div
-        class="flex justify-center md:w-full md:h-[292px] size-[290px] pt-3 md:pt-9 md:ml-16"
+        class="hidden sm:flex justify-center md:w-full md:h-[292px] size-[290px] pt-3 md:pt-9 md:ml-16"
       >
         <LetterGlitch
           client:load
